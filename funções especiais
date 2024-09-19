@@ -1,0 +1,87 @@
+
+
+------------------------------------------------------------------------------------LAMBDA
+def potencia(num):
+    return num * num
+
+# substituição por uma função especial: lambda
+potencia = lambda num: (num*num)
+
+print(potencia(2))
+print(potencia(3))
+print(potencia(4))
+print(potencia(5))
+
+#-------------------------------------------------------------------
+
+imposto = lambda x: x*0.3
+
+print(imposto(100))
+
+#---------------------------------------------------------------------
+
+impapa = lambda x : x if x % 2 == 0 else None
+
+print(impapa(int(input())))
+#--------------------------------------------------------------------
+
+impapa = lambda x : f"o {x} é par" if x % 2 == 0 else f"o {x} não é par"
+
+print(impapa(int(input())))
+
+#---------------------------------------------------------------------
+
+def mult(x,y):
+    return x *y
+
+mult = lambda x, y : x * y
+print(mult(2,3))
+
+#--------------------------------------------------------------------
+#def bscara(a,b,c):
+#    return x1,x2,delta
+
+bascara = lambda a,b,c: ((-b+(((b**2)-4*a*c)**(1/2)))/(2*a)), ((-b-(((b**2)-4*a*c)**(1/2)))/(2*a)), ((b**2)-4*a*c)
+
+print(bascara(1,2,3))
+
+#--------------------------------------------------------------------resumo:
+def imprimir():
+    print('minha primeira função')
+imprimir()
+# ou 
+
+imprimir = lambda: print('minha primeira função ')
+imprimir()
+#--------------------------------------------------------------------resumo:
+n = lambda x,y: f"{x} tem {y} anos"
+print(n((int(input())),(int(input()))))
+#-------------------------------------------------------------------resumo:
+m = lambda x,y: x * y
+print(m((int(input())),(int(input()))))
+
+import numpy as np
+
+#-------------------------------------------------------------------
+m11 = lambda f: print([i if i > 10 else print(f'{i} é menor que 10') for i in f ])
+m10 = [int(g) for g in input().split()]
+m11(m10)
+
+
+# corrigir depois
+-----------------------------------------------------------------------------------------------FILTER
+import numpy as np
+
+# ou de uma forma bem melhor
+m = [int(i) for i in input().split()]
+print(np.matrix((list(filter(lambda n: n > 10 , m)))))
+
+
+#----------------------------------------------------------------------------------------------MAP
+
+numeros = [int(i) for i in input().split()]
+# isso é igual a
+numeros2 = list(map(int,input().split()))
+print(numeros)
+print(numeros2)
+##############################################################################
