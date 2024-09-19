@@ -1,0 +1,293 @@
+
+#vetores são listas só que seus elementos são de um tipo só de elemento Ex: list = [1,2,3] | list = ["a","b","c"]
+#e a quantidade dos vetores é fixo(nao pode acresentar um elemento), mas pode muodar o elemento
+lista = ['ab','bc',3,45]
+print(lista[0])# o [x] depois do nome da lista serve para especificar qual é o elemento
+print(lista[0][1]) # o segundo [x] serve para localisar um caracter dentro do elemento(ele fas com que o elemento da lista vire uma lista e cada caracter vira um elemento)
+lista[1] = 2 # localizar e igualar o elemento a alguma coisa, serve para subistituir o elemento pelo que vc digitol depois do =
+print(len(lista)) # len(nomedalista) serve para diser o tamanho da lista
+print(lista[1:2]) # lista[x:y], o x serve para diser em qual elemento começa e o y é ate onde vai, não vai imprimir o y,só que vai tar na posições anteriores
+print(lista[1:]) # vai do elemento 1 ate acabar a lista
+print(lista[:3])  # vai do inicio ate o elemento determinado
+print(lista[::-1]) # :: invete toda a lista e o comando [x::y] o x é o terminal e o y o començo
+print(lista[0:(int(len(lista)/2))]) # se a lista tiver a quantidade de elementos par, imprime a primeira metade da lista
+print(lista[(int(len(lista)/2)):]) #  se a lista tiver a quantidade de elementos par, imprime a segunda metade da lista
+print(lista[(int(len(lista)/2))::]) #  se a lista tiver a quantidade de elementos par, imprime a segunda metade da lista de traz para frente
+print(lista[::(int(len(lista)/2))]) #  se a lista tiver a quantidade de elementos par, imprime a primeira metade da lista de traz para frente
+# se a lista tiver a quantidade de elementos impar, tem que adicionar 1 no cauculo ->  (int(len(lista)/2))  ->  (int(len(lista)/2+1))
+# operações basicas
+lista1 =[1,2]
+lista2 = [3,4]
+lista3 = lista1 + lista2
+####################
+lista1 = ['a']
+lista1 += 'ad' # o += serve para adicionar elemnetos a lista, nesse ex: o 'ad' vai se tranformar em um lista ['a','d']
+print(lista1)
+######################
+#imprimindo cada elemento da lista
+lista = [1,2,5]
+#por elemento
+for i in lista1:
+    print(i)
+
+#por posição
+for i in range(len(lista1)):
+    print(lista[i])
+
+################################
+#escreva um algoritmo que indentifica se uma lista é igual a outra
+lista2 = [1,2,3,]
+lista1 = [1,2,4,]
+
+for i in range(len(lista1)):
+    if lista1[i] != lista2[i]:
+        print(f'na posição {i} é difernte ')
+        break
+else:
+    print("a lista é igaul a outra ")
+
+
+################################
+# As listas ção dinâmicas, os vetores e matrizes não
+
+x = []
+x.append(1)
+
+print(x)
+
+#################################################################################################################################################
+# continuação de lista
+
+#operações basicas de lista
+
+lista = [1,2,3,4]
+
+#adicionar uma elemento na lista: append e insert
+#append => fim da lista
+#insert => na posição expecifica
+
+lista.append(5)
+print(lista)
+lista.insert(0,0) # o primeiro numero é a posição e a segundo é o elemento
+lista.insert(6,6)
+print(lista)
+
+# remover
+#pop => remove o elemento no fim da lista caso nao tenha posição indicada
+#remove => remove o elemento expecifico
+lista.pop(-1) # o numero expecificado é a posição que vai ser removida
+lista.remove(5) # o numero expecificado é o elemento(e não a posição) que vai ser removido
+
+# count e o index
+print(lista.count(2)) # conta quantos desse elementos tem na lista
+print(lista.index(2)) # dis qual é a posição do elemento expecificado
+
+
+#ordenar e inverter
+lista.sort() # ordena os elementos da lista em forma crecente
+lista.sort(reverse=True) # o reverce=True  dentro do () faz a ordenaação invertida
+
+#inverte a lista
+lista.reverse()
+lista = lista[::-1]
+
+set()  # cria um conjuto e tira os numeros repitidos
+x.split() # pega o x e divide pelo que tiver dendo dos (), nesse caso o espasso ' ', e transforma os elementos em string
+
+#ordenação
+lista = ['h','b','a']
+lista.sort()  # [a, b, h]
+lista = lista[::-1]  #[h, b, a]
+lista.reverse()
+lista.sort(reverse=True)
+
+#Dada a lista a seguir, imprima as soma dos elementos
+lista = [1,2,3,4,5,6]
+
+#forma 1
+print(sum(lista))
+
+
+#forma 2
+
+x = 0
+for i in lista:
+    x += i
+print(x)
+
+#forma 3
+x = 0
+for i in range(len(lista)):
+    x += lista[i]
+print(x)
+
+#forma 4
+
+soma = 0
+x = 0
+while x < len(lista):
+    soma += lista[x]
+    x += 1
+print(soma)
+
+
+
+
+
+
+##############################################
+lista = []
+
+def adicionar():
+    n = 0
+    n1 = int(input("quantos numeros deseja colocar na lista "))
+    while n < n1:
+
+        x = int(input("digite um numero para adicionar a lista"))
+        lista.append(x)
+        n += 1
+
+def remover():
+    p = 0
+    p1 = int(input("quantos numeros deseja tirar  na lista "))
+    while p < p1:
+        y = int(input('digite o elemento que deseja remover'))
+        lista.remove(y)
+        p += 1
+
+#################################################################################################################################
+import numpy as np
+
+
+# VETORES E MATRIZES
+lista =[1,2,3,4,5]
+
+LISTA1 = [4,5,3]
+LISTA2 = [10,3,1]
+LISTA3 = [-4,8,0]
+
+matriz = [LISTA1,LISTA2,LISTA3]
+# OU
+matriz = [[4,5,3],[10,3,1],[-4,8,0]]
+
+print(matriz[0][0]) # o primeiro [] pega a lista/linha da matriz e o segundo [] pega o que tem dentro desse elemento indicado
+print(matriz[0][1])
+print(matriz[0][2])
+print(matriz[1][0])
+print(matriz[1][1])
+print(matriz[1][2])
+print(matriz[2][0])
+print(matriz[2][1])
+print(matriz[2][2])
+#OU
+for l in range(len(matriz[0:])):
+    for c in range(len(matriz[l][0:])):
+        print(matriz[l][c])
+
+
+#ex:
+matriz1 = [[2,3],[0,3]]
+#é a subitração da mutiplicação diagonais da matriz1
+det = (matriz1[0][0]*matriz1[1][1])-(matriz1[0][1]*matriz1[1][0])
+
+# pega todos os elementos da matriz e os soma
+soma = 0
+for l in range(len(matriz1[0:])):
+    for c in range(len(matriz1[l][0:])):
+        soma += matriz1[l][c]
+
+
+################
+
+
+########################
+x = 0
+matriz=[[4,8,2,4],[1,15,12,10],[3,28,35,50],[40,-1,-2,200]]
+for l in range(len(matriz[0:])):
+    for c in range(len(matriz[l][0:])):
+
+        if matriz[l][c] > x:
+            x = matriz[l][c]
+
+
+print(f'a posição do maior elementno é a linha {l} e a coluna {c}')
+#######################
+x = int(input('digite um numero '))
+matriz=[[4,8,2,4,45],[1,15,12,10,22],[3,28,35,50,49],[40,-1,-2,200,23],[1010,488,4646,38398,234]]
+for l in range(len(matriz[0:])):
+    for c in range(len(matriz[l][0:])):    # tem algo errado
+        
+
+numpar = []
+num10 = []
+num0 = []
+numd5e3 = []
+matriz=[[4,8,2,4],[1,15,12,10],[3,28,35,50],[40,-1,-2,200]]
+for l in range(len(matriz[0:])):
+    for c in range(len(matriz[l][0:])):
+        if matriz[l][c] % 2 == 0 :
+            numpar.append(matriz[l][c])
+
+for l in range(len(matriz[0:])):
+    for c in range(len(matriz[l][0:])):
+        if matriz[l][c] > 10 :
+            num10.append(matriz[l][c])
+
+for l in range(len(matriz[0:])):
+    for c in range(len(matriz[l][0:])):
+        if matriz[l][c] < 0  :
+            num0.append(matriz[l][c])
+
+for l in range(len(matriz[0:])):
+    for c in range(len(matriz[l][0:])):
+        if matriz[l][c] % 5 == 0 and matriz[l][c] % 3 == 0:
+            numd5e3.append(matriz[l][c])
+
+prod = 1
+for l in range(len(matriz[0:])):
+    for c in range(len(matriz[l][0:])):
+        if l == c :
+            prod *= matriz[l][c]
+
+
+print(prod)
+print(f'os numeros pares são{numpar}')
+print(f'os numeros maiores que 10 são{num10}')
+print(f'os numeros menores que 0 são{num0}')
+print(f'os numeros que são divisiveis de 3 e 5 ao mesmo tempo são {numd5e3}')
+
+
+######################
+# COMMO FAZER UMA MATRIZ PERSONALISADA
+# FORMA 1
+colunas = int(input('quantas colunas vão ter?'))
+linhas = int(input('quantas linhas vão ter?'))
+m = []
+for l in range(linhas):
+    aux = []
+    for c in range(colunas):
+        aux.append(int(input(f'informe o valor que vai ser colocado na linha {l+1} e coluna {c+1}:')))
+    m.append(aux)
+
+print(m)
+
+#FORMA 2
+linhas = int(input('quantas linhas vão ter?'))
+matriz  = [[int(i) for i in input().split()]for c in range(linhas)]
+print(matriz)
+
+# atividade 
+
+
+linhas = int(input('quantas linhas vão ter?'))
+matriz  = [[int(i) for i in input().split()]for c in range(linhas)]
+print(np.matrix(matriz))
+
+
+matriz  = [[int(i) for i in input().split()]for c in range(linhas)]
+s = []
+for i in range(matriz):
+    for e in range(i):
+        if e > 10 :
+            s.append(e)
+print(s)
