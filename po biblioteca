@@ -1,0 +1,103 @@
+
+#RODRIGO DE ALMEIDA FORMIGA LIMA
+#PABLO RENAN DA SILVA LINS
+
+class Biblioteca():
+    def __init__(self,id,nome,localizacao):
+        self.id = id
+        self.nome = nome
+        self.localizacao = localizacao
+    def __str__(self):
+        return print(f'id: {self.id}, nome: {self.nome}, localização: {self.localizacao} ')
+class Livro():
+    def __init__(self,id,titulo,isbn, n_paginas, autores, biblioteca):
+        self.biblioteca = biblioteca
+        self.id = id
+        self.titulo = titulo
+        self.isbn = isbn
+        self.n_paginas = n_paginas
+        self.autores = autores
+    def __str__(self):
+        return print(f'id: {self.id}, titulo: {self.titulo}, isbn: {self.isbn}, numero de paginas: {self.n_paginas}, altores: {self.autores} ')
+bibliotecas = []
+livros = []
+
+def cadastrarb():
+    cpf = int(input('informe o seu id:'))
+    nome = input('informe o nome: ')
+    localizacao = input('informe a localização:')
+
+    if bibliotecas:
+        # percorrer a lista dos clientes
+        id_existe = False
+        for c in bibliotecas:
+            if c.id == id:
+                print('o id ja esta cadastrado')
+                id_existe = True
+                break
+
+        if not id_existe:
+            biblioteca1 = Biblioteca(id, nome, localizacao)
+            bibliotecas.append(biblioteca1)
+            print('cadastrado com sucesso!')
+    else:
+        biblioteca1 = Biblioteca(id, nome, localizacao)
+        bibliotecas.append(biblioteca1)
+        print('cadastrado com sucesso!')
+
+
+def cadastrarl():
+    if not bibliotecas:
+        print(f'nao existe bibliotecas cadastrados')
+        o = input('deseja cadastrar um bibliotecas? -sim- ou -nao-')
+        if o == 'sim':
+            cadastrarb()
+
+        else:
+            return
+    id = int(input('Qual o id:\n'))
+    titulo = input('Qual o titulo do livro:\n')
+    isbn = int(input('Qual o isbn:\n'))
+    n_paginas = int(input('Qual o número de paginas:\n'))
+    autores = input('Quem são os autores:\n')
+
+    for s in livros:
+        if s.isbn == isbn:
+            print('esse livro ja foi cadastrado')
+            return
+
+    for p, c in enumerate(bibliotecas, 1):
+        print(f'{p} - {c}')
+
+    op = int(input('escolha uma biblioteca:'))
+    if 0 < op <= len(bibliotecas):
+        livro = Livro(id, titulo, isbn, n_paginas, autores, bibliotecas[op - 1])
+        livros.append(livro)
+        print('Livro cadastrado com sucesso! ')
+    else:
+        print('posição invalida')
+
+while True:
+    print('|     Menu                  |')
+    print('| 1   Cadastrar biblioteca  |')
+    print('| 2   Cadastrar livro       |')
+    print('| 3   Imprimir biblioteca   |')
+    print('| 4   Imprimir livro        |')
+    print('| 5   Sair                  |')
+    op = int(input('qual opção? '))
+    if op == 1:
+        cadastrarb()
+    elif op == 2 :
+        cadastrarl()
+    elif op == 3 and bibliotecas != None:
+        for i in bibliotecas:
+            print(f"{i}\n")
+    elif op == 4 and livros != None:
+        for i in livros:
+            print(f'{i}\n')
+    elif op == 5:
+        break
+    else:
+        print("opção invalida")
+
+
