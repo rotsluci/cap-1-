@@ -1,51 +1,83 @@
 class Conta:
     def __init__(self, agencia, numero, saldo, cliente):
-        self.agencia = agencia
-        self.numero = numero
-        self.saldo = saldo
-        self.titular = cliente
+        self._agencia = agencia
+        self._numero = numero
+        self._saldo = saldo
+        self._titular = cliente
+    def getAgencia(self):
+        return self._agencia
+    def setAgencia(selfself,agencia):
+        self._agencia = agencia
+
+    def getNumero(self):
+        return self._numero
+    def setNumero(self,numero):
+        self._numero = numero
+
+    def getSaldo(self):
+        return self._saldo
+    def setSaldo(self,saldo):
+        self._saldo = saldo
+
+    def getTitular(self):
+        return self._titular
+    def setTitular(self,titular):
+        self._titular = titular
 
     def __str__(self):
-        return f'Numero: {self.numero}, Agencia: {self.agencia}, Saldo: {self.saldo}'
+        return f'Numero: {self._numero}, Agencia: {self._agencia}, Saldo: {self._saldo}'
 
     def depositar(self, valor):
-        self.saldo += valor
-
+        self._saldo += valor
 
     def sacar(self, valor):
-        self.saldo -= valor
+        self._saldo -= valor
 
     def imprimir(self):
-        print(f'numero: {self.numero} \n agencia: {self.agencia} \n saldo: {self.saldo}')
+        print(f'numero: {self._numero} \n agencia: {self._agencia} \n saldo: {self._saldo}')
 
     def saldo(self):
-        print(f'o saldo da conta é : {self.saldo}')
+        print(f'o saldo da conta é : {self._saldo}')
+
+
 class Cliente:
 
     def __init__(self, cpf, nome, sobrenome):
-        self.cpf = cpf
-        self.nome = nome
-        self.sobrenome = sobrenome
+        self._cpf = cpf
+        self._nome = nome
+        self._sobrenome = sobrenome
+    def getCpf(self):
+        return self._cpf
+    def setCpf(self,cpf):
+        self._cpf = cpf
+
+    def getNome(self):
+        return self._nome
+    def setNome(self,cpf):
+        self._nome = nome
+
+    def getSobrenome(self):
+        return self._sobrenome
+    def setSobrenome(self,sobrenome):
+        self._sobrenome = sobrenome
 
     def imprimir(self):
-        print(f'numero:saldo: {self.nome} \n agencia: {self.sobrenome} \n  {self.cpf} ')
+        print(f'numero:saldo: {self._nome} \n agencia: {self._sobrenome} \n  {self._cpf} ')
 
     def __str__(self):
-        return f'CPF: {self.cpf}, Nome: {self.nome}, Sobrenome: {self.sobrenome}'
+        return f'CPF: {self._cpf}, Nome: {self._nome}, Sobrenome: {self._sobrenome}'
 
 
-#exemplo
-#cliente1 = Cliente('123','Rodrigo','Formiga')
-#cliente2 = Cliente('456', 'ana', 'leticia')
+# exemplo
+# cliente1 = Cliente('123','Rodrigo','Formiga')
+# cliente2 = Cliente('456', 'ana', 'leticia')
 
-#conta1 = Conta('123','456',100,cliente1)
+# conta1 = Conta('123','456',100,cliente1)
 
-#print(conta1.titular.nome)
+# print(conta1.titular.nome)
 
 clientes = []
 contas = []
-
-
 
 
 def menu():
@@ -67,7 +99,7 @@ def cadastrar_Clientes():
     sobrenome = input('informe seu sobrenome:')
 
     if clientes:
-        #percorrer a lista dos clientes
+        # percorrer a lista dos clientes
         cpf_existe = False
         for c in clientes:
             if c.cpf == cpf:
@@ -76,13 +108,15 @@ def cadastrar_Clientes():
                 break
 
         if not cpf_existe:
-            cliente1 = Cliente(cpf,nome,sobrenome)
+            cliente1 = Cliente(cpf, nome, sobrenome)
             clientes.append(cliente1)
             print('cadastrado com sucesso!')
     else:
         cliente1 = Cliente(cpf, nome, sobrenome)
         clientes.append(cliente1)
         print('cadastrado com sucesso!')
+
+
 def cadastrar_Contas():
     if not clientes:
         print(f'nao existe clientes cadastrados')
@@ -116,19 +150,20 @@ def cadastrar_Contas():
 def imprimir_Clientes():
     print('lista de clientes')
     if clientes:
-        for i,c in enumerate(clientes,1): #enumerate serve para inumerar antes de cada elemento --  o (i) serve para diser o numero e o que vem depois da virgula no (enumerate())
+        for i, c in enumerate(clientes,
+                              1):  # enumerate serve para inumerar antes de cada elemento --  o (i) serve para diser o numero e o que vem depois da virgula no (enumerate())
             print(f"Cliente {i} -> {c}")
-         #for i in range(len(clientes)):
-         #   print(f'cliente {(i+1)} -> {clientes[i]}')
+        # for i in range(len(clientes)):
+        #   print(f'cliente {(i+1)} -> {clientes[i]}')
 
     else:
         print('nao tem clientes cadastrados')
 
 
-
 def imprimir_Contas():
     for c in contas:
         print(c)
+
 
 def depositar():
     print('lista de conta')
@@ -163,7 +198,7 @@ def sacar():
     if not achou:
         print('conta nao encontrada')
 
-    #OU OU OU OU OU OU
+    # OU OU OU OU OU OU
     '''
     print('lista de clientes')
     if contas:
@@ -175,8 +210,9 @@ def sacar():
     o = print('escolha o cliente')
     contas[o - 1][2] -= int(input('qual o valor a depositar'))
     print('o valor foi sacado com sucesso')
-    
+
     '''
+
 
 def transferir():
     # a coorrigir
@@ -188,7 +224,7 @@ def transferir():
     numero = int(input('informe o numero da conta que vai tranferir'))
     numero2 = int(input('informe o numero da conta que vai receber'))
 
-    for i,d in contas:
+    for i, d in contas:
         if i.numero == numero and d.numero == numero2:
             print(i)
             print(d)
@@ -201,12 +237,9 @@ def transferir():
 
         elif d.numero != numero2:
             print(f'a conta de numero {numero2} nao existe')
-        else :
+        else:
             print('nenhuma das contas existe')
             return
-
-
-
 
     '''
     print('lista de clientes')
@@ -222,19 +255,21 @@ def transferir():
     contas[o - 1][2] -= x
     contas[p - 1][2] += x
     '''
+
+
 while True:
     menu()
 
     op = int(input("qual opcao: "))
     if op == 1:
-       cadastrar_Clientes()
+        cadastrar_Clientes()
     elif op == 2:
-       cadastrar_Contas()
+        cadastrar_Contas()
     elif op == 3:
         imprimir_Clientes()
     elif op == 4:
         imprimir_Contas()
-    elif op == 5 :
+    elif op == 5:
         depositar()
     elif op == 6:
         sacar()
@@ -245,4 +280,3 @@ while True:
         break
     else:
         print("opção invalida")
-
