@@ -126,7 +126,7 @@ def emprestimo():
                     break
         else:
             print('opção invalida')
-        
+
 
 
 def imprimirUsua():
@@ -159,7 +159,7 @@ def devolucao():
     isbn1 = int(input('qual o isbn do livro?:'))
     while True:
         pp = o
-        p = isbn1 
+        p = isbn1
         if pp in [l for l in bibliotecas[3]] and isbn1 in ([i.isbn for i in devolucao]):
             for f in len(bibliotecas[3]):
                 if bibliotecas[3][f - 1] == pp:
@@ -220,7 +220,7 @@ def cadastrarl():
             cadastrarb()
         else:
             return
-    # CORRIGIR 
+    # CORRIGIR
     id = int(input('Qual o id:'))
     titulo = input('Qual o titulo do livro:')
     isbn = int(input('Qual o isbn:'))
@@ -255,7 +255,7 @@ def menu():
     print('| 5   Sair                  |')
 
 while True:
-
+    menu()
     op = int(input('qual opção? '))
     if op == 1:
         cadastrarb()
