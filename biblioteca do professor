@@ -1,0 +1,146 @@
+
+#RODRIGO DE ALMEIDA FORMIGA LIMA
+#PABLO RENAN DA SILVA LINS
+
+class Biblioteca():
+    def __init__(self,id,nome,localizacao):
+        self._id = id
+        self._nome = nome
+        self._localizacao = localizacao
+    def __str__(self):
+        return f'id: {self._id}, nome: {self._nome}, localização: {self._localizacao} '
+
+    def getId(self):
+        return self._id
+    def getNome(self):
+        return self._nome
+    def getLocalizacao(self):
+        return self._localizacao
+    def setId(self,id):
+        self._id = id
+    def setNome(self,nome):
+        self._nome = nome
+    def setLocalizacao(self,localizacao):
+        self._localizacao = localizacao
+
+class Livro():
+    def __init__(self,id,titulo,isbn, n_paginas, autores, biblioteca):
+        self._biblioteca = biblioteca
+        self._id = id
+        self._titulo = titulo
+        self._isbn = isbn
+        self._n_paginas = n_paginas
+        self._autores = autores
+    def __str__(self):
+        return f'id: {self._id}, titulo: {self._titulo}, isbn: {self._isbn}, numero de paginas: {self._n_paginas}, altores: {self._autores} '
+
+    def getBiblioteca(self):
+        return self._biblioteca
+    def getId(self):
+        return self._id
+    def getTitulo(self):
+        return self._titulo
+    def getIsbn(self):
+        return self._isbn
+    def getN_paginas(self):
+        return self._n_paginas
+    def getAutores(self):
+        return self._autores
+
+    def setBiblioteca(self,biblioteca):
+        self._biblioteca = bibliotecas
+    def getId(self,id):
+        self._id = id
+    def getTitulo(self,tirulo):
+        self._titulo = titulo
+    def getIsbn(self,isbn):
+        self._isbn = isbn
+    def getN_paginas(self,n_paginas):
+        self._n_paginas = n_paginas
+    def getAutores(self,autores):
+        self._autores = autores
+
+
+bibliotecas = []
+livros = []
+
+def cadastrarb():
+    id = int(input('informe o seu id:'))
+    nome = input('informe o nome: ')
+    localizacao = input('informe a localização:')
+
+    if bibliotecas:
+        # percorrer a lista dos clientes
+        id_existe = False
+        for c in bibliotecas:
+            if c.getid() == id:
+                print('o id ja esta cadastrado')
+                id_existe = True
+                break
+
+        if not id_existe:
+            biblioteca1 = Biblioteca(id, nome, localizacao)
+            bibliotecas.append(biblioteca1)
+            print('cadastrado com sucesso!')
+    else:
+        biblioteca1 = Biblioteca(id, nome, localizacao)
+        bibliotecas.append(biblioteca1)
+        print('cadastrado com sucesso!')
+
+
+def cadastrarl():
+    if not bibliotecas:
+        print(f'nao existe bibliotecas cadastrados')
+        o = input('deseja cadastrar um bibliotecas? -sim- ou -nao-')
+        if o == 'sim':
+            cadastrarb()
+
+        else:
+            return
+    id = int(input('Qual o id:\n'))
+    titulo = input('Qual o titulo do livro:\n')
+    isbn = int(input('Qual o isbn:\n'))
+    n_paginas = int(input('Qual o número de paginas:\n'))
+    autores = input('Quem são os autores:\n')
+    for i in bibliotecas:
+        print(f'{i}\n')
+    if id in bibliotecas:
+        for s in livros:
+            if s.getisbn() == isbn:
+                print('esse livro ja foi cadastrado')
+                return
+
+        idb = int(input('escolha uma biblioteca:'))
+        if idb in bibliotecas:
+            livro = Livro(id, titulo, isbn, n_paginas, autores, bibliotecas.nome)
+            livros.append(livro)
+            print('Livro cadastrado com sucesso! ')
+        else:
+            print('id invalido')
+    else:
+        print('id incorreto')
+
+
+
+while True:
+    print('|     Menu                  |')
+    print('| 1   Cadastrar biblioteca  |')
+    print('| 2   Cadastrar livro       |')
+    print('| 3   Imprimir biblioteca   |')
+    print('| 4   Imprimir livro        |')
+    print('| 5   Sair                  |')
+    op = int(input('qual opção? '))
+    if op == 1:
+        cadastrarb()
+    elif op == 2 :
+        cadastrarl()
+    elif op == 3 and bibliotecas != None:
+        for i in bibliotecas:
+            print(f"{i}\n")
+    elif op == 4 and livros != None:
+        for i in livros:
+            print(f'{i}\n')
+    elif op == 5:
+        break
+    else:
+        print("opção invalida")
