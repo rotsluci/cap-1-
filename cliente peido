@@ -1,151 +1,178 @@
 class Cliente:
-    def __init__(self,id,nome,email,senha):
+    def __init__(self, id, nome, email, senha):
         self._senha = senha
         self._email = email
         self._nome = nome
         self._id = id
+
     def __str__(self):
         return (f'id:{self._id}'
                 f'nome:{self._nome}'
                 f'email:{self._email}')
+
     @property
     def senha(self):
         return self._senha
     @senha.setter
-    def senha(self,senha):
+    def senha(self, senha):
         self._senha = senha
 
     @property
     def email(self):
         return self._email
-
     @email.setter
-    def email(self,email):
+    def email(self, email):
         self._email = email
 
     @property
     def nome(self):
         return self._nome
-
     @nome.setter
-    def nome(self,nome):
+    def nome(self, nome):
         self._nome = nome
 
     @property
     def id(self):
         return self._id
-
     @id.setter
-    def id(self,id):
+    def id(self, id):
         self._id = id
 
+
 class Pedido:
-    def __init__(self,id,data,valorTotal,cliente):
+    def __init__(self, id, data, valorTotal, cliente):
         self._cliente = cliente
         self._valorTotal = valorTotal
         self._data = data
         self._id = id
+
     def __str__(self):
         return (f'id:{self._id}'
                 f'data:{self._data}'
                 f'valor total:{self._valorTotal}')
 
-    def getCliente(self):
+    @property
+    def cliente(self):
         return self._cliente
-    def getValorTotal(self):
+    @cliente.setter
+    def cilente(self,cliente):
+        self._cliente = cliente
+
+    @property
+    def valortotal(self):
         return self._valorTotal
-    def getData(self):
+    @valortotal.setter
+    def valortotal(self,valortotal):
+        self._valorTotal = valortotal
+
+    @property
+    def data(self):
         return self._data
-    def getId(self):
+    @data.setter
+    def data(self,data):
+        self._data = data
+
+    @property
+    def id(self):
         return self._id
+    @id.setter
+    def id(self,id):
+        self._id = id
 
 class ItemPedido:
-    def __init__(self,precoUnitario,quantidade,precoTotal,pedido,produto):
+    def __init__(self, precounitario, quantidade, precototal, pedido, produto):
         self._produto = produto
         self._pedido = pedido
-        self._precoTotal = precoTotal
+        self._precototal = precototal
         self._quantidade = quantidade
-        self._precoUnitario = precoUnitario
+        self._precounitario = precounitario
+
     def __str__(self):
-        return (f'preço unitario:{self._precoUnitario}'
+        return (f'preço unitario:{self._precounitario}'
                 f'quantidade:{self._quantidade}'
-                f'preço total;{self._precoTotal}')
+                f'preço total;{self._precototal}')
 
     @property
     def pedido(self):
         return self._pedido
     @pedido.setter
-    def pedido(self,pedido):
+    def pedido(self, pedido):
         self._pedido = pedido
 
     @property
-    def precoTotal(self):
-        return self._precoTotal
-    @precoTotal.setter
-    def precoTotal(self,precototal):
+    def precototal(self):
+        return self._precototal
+    @precototal.setter
+    def precototal(self, precototal):
         self._precoTotal = precototal
 
     @property
     def quantidade(self):
         return self._quantidade
     @quantidade.setter
-    def quantidade(self,quantidade):
+    def quantidade(self, quantidade):
         self._quantidade = quantidade
 
     @property
-    def precoUnitario(self):
-        return self._precoUnitario
-    @precoUnitario.setter
-    def precoUnitario(self,precounitario):
+    def precounitario(self):
+        return self._precounitario
+    @precounitario.setter
+    def precounitario(self, precounitario):
         self._precoUnitario = precounitario
 
     @property
     def produto(self):
         return self._produto
     @produto.setter
-    def produto(self,produto):
+    def produto(self, produto):
         self._produto = produto
 
+
 class Produto:
-    def __init__(self,id,titulo,descricao,preco,nomeImagem):
-        self._nomeImagem = nomeImagem
+    def __init__(self, id, titulo, descricao, preco, nomeimagem):
+        self._nomeimagem = nomeimagem
         self._preco = preco
         self._descricao = descricao
         self._titulo = titulo
         self._id = id
+
     def __str__(self):
         return (f'id:{self._id}'
                 f'preço:{self._preco}'
                 f'descrição:{self._descricao}'
                 f'titulo:{self._titulo}'
                 f'preço:{self._preco}')
+    @property
+    def nomeimagem(self):
+        return self._nomeimagem
+    @nomeimagem.setter
+    def nomeimagem(self, nomeimagem):
+        self._nomeimagem = nomeimagem
 
-    def detNomeImagem(self):
-        return self._nomeImagem
-    
+    @property
     def preco(self):
         return self._preco
-    
+    @preco.setter
+    def preco(self, preco):
+        self._preco = preco
+
+    @property
     def descricao(self):
         return self._descricao
-    
+    @descricao.setter
+    def descricao(self, descricao):
+        self._descricao = descricao
+
+    @property
     def titulo(self):
         return self._titulo
-    
+    @titulo.setter
+    def titulo(self, titulo):
+        self._titulo = titulo
+
+    @property
     def id(self):
         return self._id
-    
-    def nomeImagem(self,nomeimagem):
-        self._nomeImagem = nomeimagem
-    
-    def setPreco(self,preco):
-        self._preco = preco
-    
-    def setDescricao(self,descricao):
-        self._descricao = descricao
-    
-    def setTitulo(self,titulo):
-        self._titulo = titulo
-    
-    def setId(self,id):
+    @id.setter
+    def id(self, id):
         self._id = id
