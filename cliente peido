@@ -1,0 +1,151 @@
+class Cliente:
+    def __init__(self,id,nome,email,senha):
+        self._senha = senha
+        self._email = email
+        self._nome = nome
+        self._id = id
+    def __str__(self):
+        return (f'id:{self._id}'
+                f'nome:{self._nome}'
+                f'email:{self._email}')
+    @property
+    def senha(self):
+        return self._senha
+    @senha.setter
+    def senha(self,senha):
+        self._senha = senha
+
+    @property
+    def email(self):
+        return self._email
+
+    @email.setter
+    def email(self,email):
+        self._email = email
+
+    @property
+    def nome(self):
+        return self._nome
+
+    @nome.setter
+    def nome(self,nome):
+        self._nome = nome
+
+    @property
+    def id(self):
+        return self._id
+
+    @id.setter
+    def id(self,id):
+        self._id = id
+
+class Pedido:
+    def __init__(self,id,data,valorTotal,cliente):
+        self._cliente = cliente
+        self._valorTotal = valorTotal
+        self._data = data
+        self._id = id
+    def __str__(self):
+        return (f'id:{self._id}'
+                f'data:{self._data}'
+                f'valor total:{self._valorTotal}')
+
+    def getCliente(self):
+        return self._cliente
+    def getValorTotal(self):
+        return self._valorTotal
+    def getData(self):
+        return self._data
+    def getId(self):
+        return self._id
+
+class ItemPedido:
+    def __init__(self,precoUnitario,quantidade,precoTotal,pedido,produto):
+        self._produto = produto
+        self._pedido = pedido
+        self._precoTotal = precoTotal
+        self._quantidade = quantidade
+        self._precoUnitario = precoUnitario
+    def __str__(self):
+        return (f'preço unitario:{self._precoUnitario}'
+                f'quantidade:{self._quantidade}'
+                f'preço total;{self._precoTotal}')
+
+    @property
+    def pedido(self):
+        return self._pedido
+    @pedido.setter
+    def pedido(self,pedido):
+        self._pedido = pedido
+
+    @property
+    def precoTotal(self):
+        return self._precoTotal
+    @precoTotal.setter
+    def precoTotal(self,precototal):
+        self._precoTotal = precototal
+
+    @property
+    def quantidade(self):
+        return self._quantidade
+    @quantidade.setter
+    def quantidade(self,quantidade):
+        self._quantidade = quantidade
+
+    @property
+    def precoUnitario(self):
+        return self._precoUnitario
+    @precoUnitario.setter
+    def precoUnitario(self,precounitario):
+        self._precoUnitario = precounitario
+
+    @property
+    def produto(self):
+        return self._produto
+    @produto.setter
+    def produto(self,produto):
+        self._produto = produto
+
+class Produto:
+    def __init__(self,id,titulo,descricao,preco,nomeImagem):
+        self._nomeImagem = nomeImagem
+        self._preco = preco
+        self._descricao = descricao
+        self._titulo = titulo
+        self._id = id
+    def __str__(self):
+        return (f'id:{self._id}'
+                f'preço:{self._preco}'
+                f'descrição:{self._descricao}'
+                f'titulo:{self._titulo}'
+                f'preço:{self._preco}')
+
+    def detNomeImagem(self):
+        return self._nomeImagem
+    
+    def preco(self):
+        return self._preco
+    
+    def descricao(self):
+        return self._descricao
+    
+    def titulo(self):
+        return self._titulo
+    
+    def id(self):
+        return self._id
+    
+    def nomeImagem(self,nomeimagem):
+        self._nomeImagem = nomeimagem
+    
+    def setPreco(self,preco):
+        self._preco = preco
+    
+    def setDescricao(self,descricao):
+        self._descricao = descricao
+    
+    def setTitulo(self,titulo):
+        self._titulo = titulo
+    
+    def setId(self,id):
+        self._id = id
