@@ -1,0 +1,35 @@
+
+
+
+class Conta:
+    def __init__(self, agencia, numero, cpf):
+        self._agencia = agencia
+        self._numero = numero
+        self._cpf = cpf
+
+    @property
+    def agencia(self):
+        return self._agencia
+    @agencia.setter
+    def agencia(self,agencia):
+        self._agencia = agencia
+
+    @property
+    def numero(self):
+        return self._numero
+    @numero.setter
+    def numero(self,numero):
+        self._numero = numero
+
+    @property
+    def cpf(self):
+        return self._cpf
+    @cpf.setter
+    def cpf(self,cpf):
+        self._cpf = cpf
+
+
+conta = []
+conta1 = Conta('01','111','123456789')
+conta.append(conta1)
+print(conta1.cpf)
