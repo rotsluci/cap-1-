@@ -1,0 +1,350 @@
+class Biblioteca:
+    def __init__(self, id, nome, localizacao):
+        self._id = id
+        self._nome = nome
+        self._localizacao = localizacao
+
+    @property
+    def id(self):
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        self._id = id
+
+    @property
+    def nome(self):
+        return self._nome
+
+    @nome.setter
+    def nome(self, nome):
+        self._nome = nome
+
+    @property
+    def localizacao(self):
+        return self._localizacao
+
+    @localizacao.setter
+    def localizacao(self, localizacao):
+        self._localizacao = localizacao
+
+    def __str__(self):
+        return f'id: {self._id}, nome: {self._nome}, localização: {self._localizacao}'
+
+
+class Livro:
+    def __init__(self, id, titulo, isbn, n_paginas, autores ,biblioteca):
+        self._id = id
+        self._titulo = titulo
+        self._isbn = isbn
+        self._n_paginas = n_paginas
+        self._biblioteca = biblioteca
+        self._autor = autores
+
+    @property
+    def biblioteca(self):
+        return self._biblioteca
+
+    @biblioteca.setter
+    def biblioteca(self, biblioteca):
+        self._biblioteca = biblioteca
+
+    @property
+    def id(self):
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        self._id = id
+
+    @property
+    def titulo(self):
+        return self._titulo
+
+    @titulo.setter
+    def titulo(self, titulo):
+        self._titulo = titulo
+
+    @property
+    def isbn(self):
+        return self._isbn
+
+    @isbn.setter
+    def isbn(self, isbn):
+        self._isbn = isbn
+
+    @property
+    def n_paginas(self):
+        return self._n_paginas
+
+    @n_paginas.setter
+    def n_paginas(self, n_paginas):
+        self._n_paginas = n_paginas
+
+    @property
+    def autor(self):
+        return self._autor
+
+    @autor.setter
+    def autor(self, autor):
+        self._autor = autor
+
+    def __str__(self):
+        return f'id: {self._id}, titulo: {self._titulo}, isbn: {self._isbn}, numero de paginas: {self._n_paginas}, altores: {self._autor} '
+
+
+class Usuario:
+    def __init__(self, matricula, nome, curso, senha):
+        self._matricula = matricula
+        self._nome = nome
+        self._curso = curso
+        self._senha = senha
+
+    @property
+    def matricula(self):
+        return self._matricula
+
+    @matricula.setter
+    def matricula(self, matricula):
+        self._matricula = matricula
+
+    @property
+    def nome(self):
+        return self._nome
+
+    @nome.setter
+    def nome(self, nome):
+        self._nome = nome
+
+    @property
+    def curso(self):
+        return self._curso
+
+    @curso.setter
+    def curso(self, curso):
+        self._curso = curso
+
+    @property
+    def senha(self):
+        return self._senha
+
+    @senha.setter
+    def senha(self, senha):
+        self._senha = senha
+
+    def __str__(self):
+        return f' nome: {self.nome}, curso: {self.curso}, matricula: {self.matricula}'
+
+
+#
+# class Autor():
+#     def __init__(self,nome,formacao):
+#         self.nome = nome
+#         self.formacao = formacao
+#
+#     def __str__(self):
+#        return f'nome: {self.nome}, formação: {self.formacao}'
+
+class Emprestimo:
+    def __init__(self, usuario, livro):
+        self._usuario = usuario
+        self._livro = livro
+
+    @property
+    def usuario(self):
+        return self._usuario
+
+    @usuario.setter
+    def usuario(self, usuario):
+        self._usuario = usuario
+
+    @property
+    def livro(self):
+        return self._livro
+
+    @livro.setter
+    def livro(self, livro):
+        self._livro = livro
+
+    def __str__(self):
+        return f'usuario: {self._usuario}, livro: {self._livro}'
+
+
+# def cadastrarAut():
+#     nome = input('qual o nome do altor?')
+#     formacao = input('qual a formação do altor ')
+#     autor1 = Autor(nome,formacao)
+#     autores.append(autor1)
+#     print('altor cadastrado com sucesso')
+
+emprestimos = []
+bibliotecas = []
+livros = []
+usuarios = []
+
+def cadastrarUsu():
+    matricula = int(input('qual a sua matricula'))
+    nome = input('qual o seu nome completo')
+    curso = input('qual so seu curso?')
+    senha = input('qual sua senha ')
+    usuarios1 = Usuario(matricula, nome, curso, senha)
+    usuarios.append(usuarios1)
+    print('usuario cadastrado com sucesso')
+
+
+def cadastrarbiblioteca():
+    id = int(input('informe o seu id:'))
+    nome = input('informe o nome: ')
+    localizacao = input('informe a localização:')
+
+    if bibliotecas:
+        # percorrer a lista dos clientes
+        id_existe = False
+        for c in bibliotecas:
+            if c.id == id:
+                print('o id ja esta cadastrado')
+                id_existe = True
+                break
+
+        if not id_existe:
+            biblioteca1 = Biblioteca(id, nome, localizacao)
+            bibliotecas.append(biblioteca1)
+            print('cadastrado com sucesso!')
+    else:
+        biblioteca1 = Biblioteca(id, nome, localizacao)
+        bibliotecas.append(biblioteca1)
+        print('cadastrado com sucesso!')
+
+
+def cadastrarl():
+    if not bibliotecas:
+        print(f'nao existe bibliotecas cadastrados')
+        o = input('deseja cadastrar um bibliotecas? -sim- ou -nao-')
+        if o == 'sim':
+            cadastrarbiblioteca()
+        else:
+            return
+
+    id = int(input('Qual o id do livro:'))
+    titulo = input('Qual o titulo do livro:')
+    isbn = int(input('Qual o isbn:'))
+    n_paginas = int(input('Qual o número de paginas:'))
+
+    autores = input('quais os autores do livro (separe com vírgulas)').strip().split(",")
+
+    for p, b in enumerate(bibliotecas,1):
+        print(f"{p}: {b}")
+
+    op = int(input("Escolha uma biblioteca: "))
+
+    livro_c = Livro(id,titulo,isbn,n_paginas,autores,bibliotecas[op-1])
+
+    livros.append(livro_c)
+    print('Livro cadastrado com sucesso! ')
+
+
+def emprestimo():
+    print("Usuários Existentes")
+    for i, g in enumerate(usuarios, 1):
+        print(f'{i} - {g}')
+
+    op = int(input("Escolha o usuário: "))
+    usuario = usuarios[op-1]
+
+    print("Livros Existentes")
+    for i, g in enumerate(livros, 1):
+        print(f'{i} - {g}')
+
+    op = int(input("Escolha o livro: "))
+    livro = livros[op - 1]
+
+
+    #fazer emprestimo
+    emp = Emprestimo(usuario,livro)
+    emprestimos.append(emp)
+    print("Empréstimo realizado com sucesso!")
+
+
+def imprimirUsua():
+    usuarios.sort()
+    for o, x in enumerate(usuarios, 1):
+        print(f'{x} - {o}')
+
+
+def Devolucao():
+    if not devolucao:
+        print('nao tem livros emprestados')
+        q = input('quer um emprestimo? -sim- ou -nao-')
+        if q == 'sim':
+            emprestimo()
+    while True:
+        matricula = int(input('qual a matricula'))
+        senha = input('qual a senha')
+        if matricula == usuarios[op - 1][3] and senha == usuarios[op - 1][4]:
+            break
+        elif matricula != usuarios[op - 1][3] and senha == usuarios[op - 1][4]:
+            print('matricula incorreto')
+        elif matricula == usuarios[op - 1][3] and senha != usuarios[op - 1][4]:
+            print('senha incorreta')
+        else:
+            print('a amtricula e a senha esta errada')
+
+    # so falta ajeitar essa parte
+    p = None
+    o = input('qual o altor do livro ?')
+    isbn1 = int(input('qual o isbn do livro?:'))
+    while True:
+        pp = o
+        p = isbn1
+        x = None
+        for i, d in enumerate(bibliotecas[0].autores, 0):
+            if d == pp:
+                x = i
+        if pp in [l for l in bibliotecas[0][3]] and isbn1 in ([i.isbn for i in devolucao]):
+            for f, g in enumerate(bibliotecas[0].autores, 0):
+                if f == pp:
+                    bibliotecas[0][g].append(devolucao)
+                    devolucao.remove(([i for i in devolucao if i.isbn == p]))
+                else:
+                    print('nao existe esse altor na biblioteca ')  # nao vou dar opção de adicionar um altor aqui ainda
+            print('livro devolvido com sucesso!')
+
+
+def menu():
+    print('|     Menu                  |')
+    print('| 1   Cadastrar biblioteca  |')
+    print('| 2   Cadastrar livro       |')
+    print('| 3   cadastrar usuario     |')
+    print('| 4   Imprimir biblioteca   |')
+    print('| 5   Imprimir livro        |')
+    print('| 6   emprestimo            |')
+    print('| 7   imprimir usuario      |')
+    print('| 8   devolução             |')
+    print('| 9   Sair                  |')
+
+
+while True:
+    menu()
+    op = int(input('qual opção? '))
+    if op == 1:
+        cadastrarbiblioteca()
+    elif op == 2:
+        cadastrarl()
+    elif op == 3:
+        cadastrarUsu()
+    elif op == 4 and bibliotecas != None:
+        for i in bibliotecas:
+            print(f"{i}\n")
+    elif op == 5 and livros != None:
+        for i in livros:
+            print(f'{i}\n')
+    elif op == 6:
+        emprestimo()
+    elif op == 7:
+        imprimirUsua()
+    elif op == 8:
+        Devolucao()
+    elif op == 9:
+        break
+    else:
+        print("opção invalida")
