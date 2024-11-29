@@ -1,0 +1,91 @@
+class Aluno:
+    def __init__(self,matricula, nome1):
+        self._nome1 = nome1
+        self._matricula = matricula
+
+    def __str__(self):
+        return f'matricula: {self._matricula}, nome: {self._nome1}'
+    @property
+    def matricula(self):
+        return self._matricula
+    @matricula.setter
+    def matricula(self,matricula):
+        self._matricula = matricula
+    @property
+    def nome1(self):
+        return self._nome
+    @nome1.setter
+    def nome1(self,nome1):
+        self._nome1 = nome1
+
+class diciplina:
+    def __init__(self, codigo, nome):
+        self._nome = nome
+        self._codigo = codigo
+    def __str__(self):
+        return f'codigo :{self._codigo}, nome: {self._nome}'
+    @property
+    def nome(self):
+        return self._nome
+    @nome.setter
+    def nome(self,nome):
+        self._nome = nome
+    @property
+    def codigo(self):
+        return self._codigo
+    @codigo.setter
+    def codigo(self,codigo):
+        self._codigo = codigo
+
+class Periodoletivo:
+    def __init__(self, numero, ano):
+        self._ano = ano
+        self._numero = numero
+
+    def __str__(self):
+        return f' numero: {self._numero}, ano: {self._ano}'
+    @property
+    def codigo(self):
+        return self._codigo
+    @codigo.setter
+    def codigo(self,codigo):
+        self._codigo = codigo
+    @property
+    def ano(self):
+        return self._ano
+    @ano.setter
+    def ano(self,ano):
+        self._ano = ano
+
+class Turnma:
+    def __init__(self,codigot,aluno,diciplina,periodoletivo):
+        self._periodoletivo = periodoletivo
+        self._diciplina = diciplina
+        self._aluno = aluno
+        self._codigot = codigot
+    def __str__(self):
+        return f'codigo da turma: {self._codigot}, aluno: {self._aluno}, diciplina: {self._diciplina}, periodo letivo: {self._periodoletivo}'
+    @property
+    def codigot(self):
+        return self._codigot
+    @codigot.setter
+    def codigot(self,codigot):
+        self._codigot = codigot
+    @property
+    def aluno(self):
+        return self.aluno
+    @aluno.setter
+    def aluno(self,aluno):
+        self._aluno = aluno
+    @property
+    def diciplina(self):
+        return self.diciplina
+    @diciplina.setter
+    def diciplina(self,diciplina):
+        self._diciplina = diciplina
+    @property
+    def periodoletivo(self):
+        return self._periodoletivo
+    @periodoletivo.setter
+    def periodoletivo(self,periodoletivo):
+        self._periodoletivo = periodoletivo
