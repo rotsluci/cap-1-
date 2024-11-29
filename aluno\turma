@@ -13,7 +13,7 @@ class Aluno:
         self._matricula = matricula
     @property
     def nome1(self):
-        return self._nome
+        return self._nome1
     @nome1.setter
     def nome1(self,nome1):
         self._nome1 = nome1
